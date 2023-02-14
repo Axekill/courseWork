@@ -1,14 +1,15 @@
 package coursework;
 
 public class Employee {
-    Counted counted;
-    String firstName;
-    String middleName;
-    String lastName;
-    int department;
-    int salary;
+    private static int counted;
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
+    private int department;
+    private int salary;
 
-    public Employee( String firstName, String middleName, String lastName, int department, int salary) {
+    public Employee(String firstName, String middleName, String lastName, int department, int salary) {
+        counted++;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -16,7 +17,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Counted getCounted() {
+    public int getCounted() {
         return counted;
     }
 
@@ -47,7 +48,7 @@ public class Employee {
     }
 
     public void setSalary(int salary) {
-        if (salary < 0) {
+        if (salary > 0) {
             this.salary = salary;
         }
     }
@@ -55,12 +56,10 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + counted +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", department=" + department +
-                ", salary=" + salary +
+                "id: " + counted +
+                ", Ф.И.О.:" + lastName + " " + firstName + " " + middleName +
+                ", Отдел: " + department +
+                ", Зарплата: " + salary +
                 '}';
     }
 }
