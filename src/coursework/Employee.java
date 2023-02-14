@@ -55,11 +55,9 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id: " + counted +
+        return "id: " + counted +
                 ", Ф.И.О.:" + lastName + " " + firstName + " " + middleName +
                 ", Отдел: " + department +
-                ", Зарплата: " + salary +
-                '}';
+                ", Зарплата: " + salary ;
     }
 }
