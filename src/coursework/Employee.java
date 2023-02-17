@@ -2,36 +2,26 @@ package coursework;
 
 public class Employee {
     private static int counted;
-    private final String firstName;
-    private final String middleName;
-    private final String lastName;
+    private final int id;
+    private final String FIO;
     private int department;
     private int salary;
 
-    public Employee(String firstName, String middleName, String lastName, int department, int salary) {
-        counted++;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
+    public Employee(String FIO, int department, int salary) {
+        id = ++counted;
+        this.FIO = FIO;
         this.department = department;
         this.salary = salary;
     }
 
-    public int getCounted() {
-        return counted;
+    public int getId() {
+        return id;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    public String getFIO() {
+        return this.FIO;
     }
 
-    public String getMiddleName() {
-        return this.middleName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
 
     public int getDepartment() {
         return this.department;
@@ -55,9 +45,9 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "id: " + counted +
-                ", Ф.И.О.:" + lastName + " " + firstName + " " + middleName +
+        return "id: " + id +
+                ", Ф.И.О.:" + FIO +
                 ", Отдел: " + department +
-                ", Зарплата: " + salary ;
+                ", Зарплата: " + salary;
     }
 }
