@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 public class Main {
+    static Employee[] arr = new Employee[10];
    /* private static int getMin(Employee[] arr) {
         int min = Integer.MAX_VALUE;
         for (Employee employee : arr) {
@@ -18,9 +19,14 @@ public class Main {
         int max = Integer.MIN_VALUE;
         for (Employee employee : arr) {
             max = Math.max(max, employee.getSalary());
-
         }
         return max;
+    }*/
+
+   /* private static void fioWorkers() {
+        for (Employee employee : arr) {
+            System.out.println(employee.getFIO());
+        }
     }*/
 
     private static int getSum(Employee[] arr) {
@@ -33,21 +39,15 @@ public class Main {
 
     private static void workers(Employee[] arr) {
         int i = 0;
-        while (i < arr.length) {
-            if (i == arr.length - 1) {
-                System.out.println(arr[i]);
-                break;
-            }
-            System.out.println(arr[i] + " ");
+        for (Employee wk : arr) {
+            wk = arr[i];
             i++;
+            System.out.println(wk);
         }
     }
 
     private static int getAvg(Employee[] arr) {
-        int sum = 0;
-        for (Employee employee : arr) {
-            sum += employee.getSalary();
-        }
+        var sum = getSum(arr);
         return sum / arr.length;
     }
 
@@ -64,6 +64,7 @@ public class Main {
                 .orElseThrow(NoSuchElementException::new);
         System.out.println("Сотрудник с максимальной зарплатой: " + maxSal);
     }
+
     private static void minSal(Employee[] arr) {
         Employee minSal = Arrays.stream(arr)
                 .min(Comparator.comparing(Employee::getSalary))
@@ -73,8 +74,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Employee[] arr = new Employee[10];
-
         Employee worker1 = new Employee("Иванов Иван Иванович", 1, 21624);
         arr[0] = worker1;
 
@@ -119,8 +118,7 @@ public class Main {
         System.out.println();
         // System.out.println("Сотрудник с минимальной зарплатой: " + getMin(arr));
         // System.out.println("Сотрудник с максимальной зарплатой: " + getMax(arr));
-
-
+        // fioWorkers();
 
 
     }
